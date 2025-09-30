@@ -1,41 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import MyComponent from './componets/learn/MyComponet'
-import { SecondComponent } from './componets/learn/SecondComponent'
-import { ThirdComponent } from './componets/learn/SecondComponent'
+import './componets/todo/todo.css';
+import TodoNew from './componets/todo/TodoNew.jsx';
+import TodoData from './componets/todo/TodoData.jsx';
+import reactLogo from './assets/react.svg';
 
+const App = () => {
 
-function App() {
-  const [count, setCount] = useState(0)
+  //Props: properties
+  //la mot co che de truyen du lieu tu component cha (App) sang component con (TodoData)
+  //de component con co the su dung du lieu do de hien thi giao dien
+
+  const name = "Eric GAYY";
+  //{key: value}
+  const age = 30;
+  const data = {
+    adress: "HCM",
+    phone: "0123456789"
+  }
+  //{key: value, key: value, key: value}
+
+  const addNewTodo = (name) => {
+    alert(`Call me maybe ${name}`); //hien thi name truyen vao
+  }
+  // addNewTodo();
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="todo-container">
+      <div className="todo-title">Todo List</div>
+      <TodoNew
+        addNewTodo={addNewTodo}//gia tri = function
+      />
+      <TodoData
+        name={name} //gia tri = string
+        age={age} //gia tri = number
+        data={data} //gia tri = object
+
+      //tham chi truyen du lieu qua props khong can truyen qua
+      // children
+      />
+      <div className='todo-image'>
+        <img src={reactLogo} className="logo react" />
       </div>
-      <h1>Hello world Mi</h1>
-      <MyComponent />
-      <SecondComponent />
-      <ThirdComponent />
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+
+    </div>
   )
 }
 
