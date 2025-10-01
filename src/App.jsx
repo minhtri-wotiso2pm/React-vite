@@ -2,8 +2,14 @@ import './componets/todo/todo.css';
 import TodoNew from './componets/todo/TodoNew.jsx';
 import TodoData from './componets/todo/TodoData.jsx';
 import reactLogo from './assets/react.svg';
+import { useState } from 'react';
 
 const App = () => {
+
+  const [todoList, setTodos] = useState([
+    { id: '1', title: 'Doing homework' },
+    { id: '2', title: 'Making video' }
+  ]);
 
   //Props: properties
   //la mot co che de truyen du lieu tu component cha (App) sang component con (TodoData)
@@ -33,6 +39,7 @@ const App = () => {
         name={name} //gia tri = string
         age={age} //gia tri = number
         data={data} //gia tri = object
+        todoList={todoList}
 
       //tham chi truyen du lieu qua props khong can truyen qua
       // children
