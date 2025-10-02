@@ -25,9 +25,22 @@ const App = () => {
   //{key: value, key: value, key: value}
 
   const addNewTodo = (name) => {
-    alert(`Call me maybe ${name}`); //hien thi name truyen vao
+    const newTodo = {
+      id: randomIntFromInterval(1, 1000000), //random id
+      name: name
+    } //hien thi name truyen vao
+
+    setTodos([...todoList, newTodo]) //cap nhat lai state
+    //...:copy toan bo phan tu trong mang
+    //newTodo: them phan tu moi vao cuoi mang
+    //render lai giao dien thong qua setTodos
   }
   // addNewTodo();
+
+  const randomIntFromInterval = (min, max) => { // min and max included 
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+
 
   return (
     <div className="todo-container">
