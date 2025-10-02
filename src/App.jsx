@@ -7,8 +7,6 @@ import { useState } from 'react';
 const App = () => {
 
   const [todoList, setTodos] = useState([
-    { id: '1', title: 'Doing homework' },
-    { id: '2', title: 'Making video' }
   ]);
 
   //Props: properties

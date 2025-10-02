@@ -12,6 +12,7 @@ const TodoNew = (props) => {
     // addNewTodo("Eric");
     const handleClick = () => {
         addNewTodo(valueInput);
+        setValueInput("");
     }
 
     const handleChange = (name) => {
@@ -24,7 +25,7 @@ const TodoNew = (props) => {
         <div>
             <input type="text"
                 onChange={(event) => { handleChange(event.target.value) }}
-
+                value={valueInput}
             />
 
             <button
